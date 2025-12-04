@@ -11,18 +11,17 @@ export class AppComponent implements OnInit{
   title = 'ourTableApp';
   todoArr:Array<Itodo>=[]
 
-  POST_URL=`https://jsonplaceholder.typicode.com/todos`
+  Todo_URL=`https://jsonplaceholder.typicode.com/todos`
 
   constructor(
     private _httpClient : HttpClient
   ){}
 
   ngOnInit(): void {
-    this._httpClient.get<Array<Itodo>>(this.POST_URL)
+    this._httpClient.get<Array<Itodo>>(this.Todo_URL)
     .subscribe((res:Array<Itodo>)=>{
       console.log(res);
       this.todoArr=res
-      
     })
   }
 
